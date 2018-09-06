@@ -82,3 +82,33 @@ nomes1 <- c("Anna", "Pedro", "Carlos", "Bruno", "Vanessa", "Paula", "Italo")
 nomes2 <- c("Jorge", "Davi", "Mariana", "Carolina", "Alice")
 nomes_completo <- c(nomes1, nomes2)
 nomes_completo
+
+# 1.5 Data frames
+
+produto <- c("Produto A", "Produto B", "Produto C", "Produto D", "Produto E")
+preco <- c(5, 15, 4, 6, 8)
+tabela_preco_produto <- data.frame(produto, preco)
+tabela_preco_produto
+
+# Indexação de data frames
+tabela_preco_produto[4, 2]
+tabela_preco_produto[4:5, 2]
+
+# Acessando uma coluna de um frame
+tabela_preco_produto$produto
+tabela_preco_produto[, "produto"]
+
+# Criando uma nova coluna em um data frame
+tabela_preco_produto$quantidade <- c(50, 100, 120, 150, 200)
+tabela_preco_produto
+
+tabela_preco_produto[, "custos"] <- c(2, 12, 3, 5, 6)
+tabela_preco_produto
+
+# Conhecendo seu data frame
+base_flores <- iris
+
+str(base_flores)
+head(base_flores)
+summary(base_flores)
+names(base_flores)
