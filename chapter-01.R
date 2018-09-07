@@ -151,3 +151,45 @@ minha_lista2
 # Conhecendo a sua lista
 str(minha_lista2)
 summary(minha_lista2$idades)
+
+# 1.8 Trabalhando com diretórios e arquivos externos
+
+getwd()
+list.files()
+setwd("~/Developer/projects/time-series-analysis")
+
+# 1.8.1 Leitura de arquivos externos
+
+pessoas <- read.table(file="populacao.txt", header=TRUE, sep="\t", dec=".")
+head(pessoas)
+
+pessoas_csv <- read.csv(file="populacao.csv")
+pessoas_csv
+
+combustivel <- read.csv2(file="dados_anp2.csv")
+combustivel
+
+# 1.8.2 Exportação de arquivos
+
+nomes <- c("Marco", "Carol", "João", "Caio", "Vinicius")
+idades <- c(36, 29, 28, 8, 10)
+frame_idades <- data.frame(nomes, idades)
+
+write.table(frame_idades, "idades.txt")
+write.csv(frame_idades, "idades.csv")
+write.csv2(frame_idades, "idades.csv")
+
+# Leitura de arquivos usando pacotes externos
+# install.packages("xlsx")
+# (No terminal) sudo R CMD javareconf
+
+# Leitura de arquivos no formato .xlsx
+library(xlsx)
+populacao <- read.xlsx("populacao.xlsx", sheetIndex=1)
+head(populacao)
+
+# Exportação de arquivos no formato .xlsx
+nome <- c("Anna", "Bruno", "Fernando", "Viviane", "Bernardo")
+salario <- c(3000, 5000, 2500, 1000, 500)
+df_salarios <- data.frame(nome, salario)
+write.xlsx(df_salarios, "funcionarios.xlsx", sheetName="Salario", row.names=FALSE)
