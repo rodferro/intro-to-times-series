@@ -128,3 +128,26 @@ B[1,] <- c(5, 7, 6, 8)
 # Alterando a terceira coluna
 B[, 3] <- c(4, 3, 2, 16)
 B
+
+# 1.7 Listas
+
+minha_lista <- list("Curso de Formação Executiva em Big Data e Data Science", 
+                    3, "Introdução ao R")
+minha_lista
+
+minha_lista2 <- list(nome_curso="Curso de Formação Executiva em Big Data e Data Science",
+                    turma=3, aula="Introdução ao R")
+minha_lista2
+
+# Acessando os elementos em uma lista
+minha_lista2[[3]]
+minha_lista2$nome_curso
+
+# Adicionando objetos em uma lista
+minha_lista2$alunos <- c("Anna", "Marco", "Fernando", "Juliana", "Diego", "Rafael")
+minha_lista2$idades <- c(29, 31, 22, 20, 27, 28)
+minha_lista2
+
+# Conhecendo a sua lista
+str(minha_lista2)
+summary(minha_lista2$idades)
