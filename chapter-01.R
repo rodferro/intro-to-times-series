@@ -112,3 +112,19 @@ str(base_flores)
 head(base_flores)
 summary(base_flores)
 names(base_flores)
+
+# 1.6 Matriz
+
+A <- matrix(c(0, 7, 0, 1, 4, 5, 0, 7, 0), ncol=3, nrow=3, byrow=TRUE)
+A
+
+B <- matrix(rep(0, 16), ncol=4, nrow=4)
+B
+
+A[1, 2]
+
+# Alterando a primeira linha
+B[1,] <- c(5, 7, 6, 8)
+# Alterando a terceira coluna
+B[, 3] <- c(4, 3, 2, 16)
+B
