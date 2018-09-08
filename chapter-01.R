@@ -193,3 +193,75 @@ nome <- c("Anna", "Bruno", "Fernando", "Viviane", "Bernardo")
 salario <- c(3000, 5000, 2500, 1000, 500)
 df_salarios <- data.frame(nome, salario)
 write.xlsx(df_salarios, "funcionarios.xlsx", sheetName="Salario", row.names=FALSE)
+
+# 1.9 Estruturas de condição e repetição
+
+# 1.9.1 Estruturas de condição
+
+# Estrutura if e else
+a = 31
+b = 30
+if (a < b) {
+  cat("a é menor que b")
+} else if (a > b) {
+  cat("b é menor que a")
+} else {
+  cat("São iguais")
+}
+
+# Estrutura ifelse
+a = 31
+b = 30
+ifelse(a > b, "a é maior", "b é maior")
+
+# 1.9.2 Estruturas de repetição
+
+a = 10
+while (a < 20) {
+  print(a)
+  a <- a + 1
+}
+
+produto <- c("Produto A", "Produto B", "Produto C", "Produto D", "Produto E")
+preco <- (c(5, 15, 4, 6, 8))
+preco_novo <- NA
+tabela_preco_produto <- data.frame(produto, preco, preco_novo)
+produtos <- 1
+while (produtos <= 5) {
+  tabela_preco_produto[produtos, "preco_novo"] <- 2 * tabela_preco_produto[produtos, "preco"]
+  produtos <- produtos + 1
+}
+tabela_preco_produto
+
+# Estrutura for
+v = c(16, 18, 59, 35, 27, 37, 38)
+for (i in 1:length(v)) {
+  print(v[i])
+}
+
+produto <- c("Produto A", "Produto B", "Produto C", "Produto D", "Produto E")
+preco <- (c(5, 15, 4, 6, 8))
+preco_novo <- NA
+tabela_preco_produto <- data.frame(produto, preco, preco_novo)
+for (i in 1:nrow(tabela_preco_produto)) {
+  tabela_preco_produto[i, "preco_novo"] <- 2 * tabela_preco_produto[i, "preco"]
+}
+tabela_preco_produto
+
+alunos <- c("Anna", "Paulo", "Pedro", "Serafin", "Marco", "Karina", "Giuliana", "Diego", "Natalia", "Ingrid", "Daiane")
+p1 <- c(2, 3, 10, 5, 7, 8, 5, 2, 4, 10, 8)
+p2 <- c(9, 5, 9, 5, 7, 5, 4, 4, 2, 1, 8)
+p3 <- c(10, 6, 8, 8, 8, 10, 8, 5, 9, 2, 9)
+alunos <- data.frame(alunos, p1, p2, p3)
+alunos$media <- (alunos$p1 + alunos$p2 + alunos$p3) / 3
+alunos$status <- NA
+for (i in 1:nrow(alunos)) {
+  if (alunos[i, "media"] >= 7) {
+    alunos[i, "status"] <- "Aprovado"
+  } else if(alunos[i, "media"] < 7 & alunos[i, "media"] >= 5) {
+    alunos[i, "status"] <- "Recuperação"
+  } else {
+    alunos[i, "status"] <- "Reprovado"
+  }
+}
+alunos
