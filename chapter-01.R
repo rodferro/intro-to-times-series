@@ -265,3 +265,19 @@ for (i in 1:nrow(alunos)) {
   }
 }
 alunos
+
+# 1.10 Funções
+
+media <- function(a, b) {
+  m <- (a + b) / 2
+  return(m)
+}
+media(3, 5)
+
+calcula_tudo <- function(a, b) {
+  media <- (a + b) / 2
+  soma <- a + b
+  multiplicacao <- a * b
+  return(list(soma=soma, media=media, multiplicacao=multiplicacao))
+}
+calcula_tudo(4, 10)
