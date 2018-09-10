@@ -281,3 +281,16 @@ calcula_tudo <- function(a, b) {
   return(list(soma=soma, media=media, multiplicacao=multiplicacao))
 }
 calcula_tudo(4, 10)
+
+# 1.11 A função which
+
+v = c(15, 20, 35, 38, 24, 50)
+v2 = v[which(v %% 5 == 0)]
+v2
+
+nomes <- c("Claudia", "Paulo", "Fernando", "Gisele", "Anna", "Pedro", "João", "Matheus")
+idades <- c(30, 28, 45, 36, 27, 18, 21, 25)
+frame_pessoas <- data.frame(nomes, idades)
+maior_idade <- max(idades)
+pessoa_mais_velha <- frame_pessoas[which(frame_pessoas$idades == maior_idade),]
+pessoa_mais_velha
