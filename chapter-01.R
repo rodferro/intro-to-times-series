@@ -294,3 +294,24 @@ frame_pessoas <- data.frame(nomes, idades)
 maior_idade <- max(idades)
 pessoa_mais_velha <- frame_pessoas[which(frame_pessoas$idades == maior_idade),]
 pessoa_mais_velha
+
+# 1.12 Funções apply
+
+# Função apply
+D = matrix(c(10, 18, 18, 50, 25, 19, 23, 45, 90, 27, 28, 40, 11, 45, 25, 35),
+           nrow=4, ncol=4, byrow=TRUE)
+D
+
+medias = apply(D, 2, mean)
+medias
+
+apply(D, 1, function(x) x-1)
+
+# Função lapply
+v = c(5, 9, 7, 10, 4)
+lapply(v, function(v) v^2)
+
+unlist(lapply(v, function(v) v^2))
+
+# Função sapply
+sapply(v, function(v) v^2)
