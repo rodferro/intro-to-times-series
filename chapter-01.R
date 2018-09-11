@@ -315,3 +315,37 @@ unlist(lapply(v, function(v) v^2))
 
 # Função sapply
 sapply(v, function(v) v^2)
+
+# 1.13 Criando gráficos com o R
+
+# Lendo a base
+# install.packages("UsingR")
+require(UsingR)
+head(galton)
+
+# Convertendo de polegadas para centímetros (1 polegada ≈ 2,54 cm)
+galton <- 2.54 * galton
+head(galton)
+
+# Esboçando o histograma
+hist(galton$child, main="", xlab="Altura (cm)", ylab="Frequência", ylim=c(0, 200),
+     col="lightgray", border="steelblue")
+
+# Criando o gráfico
+dados <- read.csv2("POF_capitais.csv")
+hist(dados[, 31], main="", xlab="Renda Total Mensal do Domicílio", ylab="Frequência",
+     col="lightsteelblue3")
+
+# Filtrando os dados
+menorq10 <- subset(dados[, 31], dados[, 31] < 10000)
+
+# Criando o gráfico
+hist(menorq10, main="", xlab="Renda Total Mensal do Domicílio em R$", ylab="Frequência",
+     col="lightskyblue")
+
+# Instalando e carregando o pacote moments
+# install.packages("moments")
+require(moments)
+
+# Calcular assimetria com a fórmula
+skewness(menorq10)
