@@ -357,3 +357,16 @@ boxplot(galton$parent, main="", ylab="Altura (cm)", col="seagreen3")
 # Criando o boxplot
 boxplot(menorq10, horizontal=T, col="gold", xlab = "Renda Total Mensal do Domicílio",
         main="")
+
+# 1.13.3 Gráfico de pontos ou gráfico de dispersão
+
+# Base a ser utilizada
+head(kid.weights)
+
+# Criando o gráfico
+plot(kid.weights$weight, kid.weights$height, main="", xlab="Peso", ylab="Altura")
+
+# Criando o gráfico
+plot(dados[, 16], dados[, 20], main="", pch=19, col="dodgerblue3",
+     xlab="Quantidade de Cômodos no Domicílio", 
+     ylab="Quantidade de Banheiros no Domicílio")
