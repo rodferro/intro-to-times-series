@@ -349,3 +349,11 @@ require(moments)
 
 # Calcular assimetria com a fórmula
 skewness(menorq10)
+
+# 1.13.2 Boxplot
+
+boxplot(galton$parent, main="", ylab="Altura (cm)", col="seagreen3")
+
+# Criando o boxplot
+boxplot(menorq10, horizontal=T, col="gold", xlab = "Renda Total Mensal do Domicílio",
+        main="")
