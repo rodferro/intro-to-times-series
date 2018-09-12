@@ -370,3 +370,33 @@ plot(kid.weights$weight, kid.weights$height, main="", xlab="Peso", ylab="Altura"
 plot(dados[, 16], dados[, 20], main="", pch=19, col="dodgerblue3",
      xlab="Quantidade de Cômodos no Domicílio", 
      ylab="Quantidade de Banheiros no Domicílio")
+
+# 1.13.4 Gráfico de setores ou de pizza
+
+# Tabela de frequência das categorias
+prop <- table(kid.weights[, 4])
+prop
+
+# Esboçando o gráfico
+pie(prop, main="", labels=c("51.6%", "48.4%"),
+    col=c("palevioletred2", "dodgerblue3"))
+
+# Adicionando a legenda
+legend(x="topright", bty="n", cex=0.8, legend=c("Feminino", "Masculino"),
+       fill=c("palevioletred2", "dodgerblue3"))
+
+# Tabela de frequência das categorias
+setores <- table(dados[, 12])
+
+# Cálculo da porcentagem de cada categoria
+valores <- signif(setores / sum(setores) * 100, 3)
+
+# Construção do gráfico
+pie(setores, labels=paste(valores, "%", sep=""),
+    col=c("steelblue1", "olivedrab3", "orange"),
+    main="")
+
+# Criando a legenda
+texto <- c("Casa", "Apartamento", "Cômodo")
+legend(x="topright", legend=texto, fill=c("steelblue1", "olivedrab3", "orange"),
+       cex=0.65)
