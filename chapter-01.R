@@ -400,3 +400,29 @@ pie(setores, labels=paste(valores, "%", sep=""),
 texto <- c("Casa", "Apartamento", "Cômodo")
 legend(x="topright", legend=texto, fill=c("steelblue1", "olivedrab3", "orange"),
        cex=0.65)
+
+# 1.13.5 Gráfico de barras
+
+# Dados a serem utilizados
+grades
+tabela1 <- table(grades[, 1])
+tabela2 <- table(grades[, 2])
+
+# Criando o gráfico
+barplot(tabela1, main="", col=topo.colors(9))
+barplot(tabela2, main="", col=topo.colors(9))
+
+# Calculando a renda média por UF
+renda <- tapply(dados[, 31], dados[, 2], mean)
+
+# Criando o gráfico
+barplot(renda, names=c("BA", "MG", "RJ", "SP", "RS", "DF"),
+        ylim=c(0, 5000), main="", col=gray.colors(6))
+
+# Tabela de dados que mescla UF com os tipos de domicílios
+tabela <- table(dados[, 2], dados[, 12])
+
+# Criando o gráfico
+barplot(tabela, names=c("Casa", "Apartamento", "Cômodo"),
+        main="", beside=T, col=terrain.colors(6),
+        legend.text=c("BA", "MG", "RJ", "SP", "RS", "DF"))
