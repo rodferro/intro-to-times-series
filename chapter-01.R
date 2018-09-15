@@ -426,3 +426,21 @@ tabela <- table(dados[, 2], dados[, 12])
 barplot(tabela, names=c("Casa", "Apartamento", "Cômodo"),
         main="", beside=T, col=terrain.colors(6),
         legend.text=c("BA", "MG", "RJ", "SP", "RS", "DF"))
+
+# 1.13.6 Outros gráficos
+
+# Ramo-e-folhas
+stem(dados[, 31])
+
+# Distribuição empírica
+# Número de observações e vetor de proporções
+n <- length(dados[, 31])
+y <- (1:n)/n
+
+# Ordenando a renda
+renda <- sort(dados[, 31])
+
+# Esboçando o gráfico
+plot(renda, y, type="S", xlab="Renda Total Mensal de Domicílio",
+     ylab="Probabilidade",
+     main="")
