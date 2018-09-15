@@ -444,3 +444,41 @@ renda <- sort(dados[, 31])
 plot(renda, y, type="S", xlab="Renda Total Mensal de Domicílio",
      ylab="Probabilidade",
      main="")
+
+# 1.13.7 Adicionando elementos ao gráfico
+
+# Adicionando 2 linhas verticais e tracejadas
+abline(v=c(5000, 10000), col=c("tomato", "blue"), lty=2)
+
+# Adicionando 2 linhas horizontais e pontilhadas
+abline(h=c(0.8, 0.9), col="darkgray", lty=3)
+
+# Adicionando 2 pontos ao gráfico
+points(5000, 0.8, col="tomato", pch=19)
+points(10000, 0.9, col="blue", pch=19)
+
+# Adicionando 2 textos ao gráficos
+text(5000, 0.8, labels="5 mil", col="tomato", pos=2)
+text(10000, 0.9, labels="10 mil", col="blue", pos=4)
+
+# Adicionando títulos
+# Gráfico sem título
+plot(1:10, 1:10, xlab="", ylab="", pch=19)
+
+# Adicionando título ao gráfico
+title(main="Título do gráfico", font.main=8, col.main="blue",
+      xlab="eixo x", ylab="eixo y", font.lab=10, col.lab="red")
+
+# Esboçando retas
+# Gráfico
+plot(0:10, 0:10, pch=19, main="Gráfico")
+
+# Adicionando 6 pontos que serão ligados por uma linha
+lines(c(0, 2, 4, 6, 8, 10), c(1, 4, 2, 8, 9, 4), type="o")
+
+# Esboçando curvas ou expressões
+# Gráfico
+plot(0:10, 0:10, pch=19, main="Gráfico")
+
+# Adicionando a expressão x^2 ao gráfico
+curve(x^2, from=0, to=10, add=T, col="blue")
