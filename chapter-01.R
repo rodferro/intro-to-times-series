@@ -160,13 +160,13 @@ setwd("~/Developer/projects/time-series-analysis")
 
 # 1.8.1 Leitura de arquivos externos
 
-pessoas <- read.table(file="populacao.txt", header=TRUE, sep="\t", dec=".")
+pessoas <- read.table(file="data/populacao.txt", header=TRUE, sep="\t", dec=".")
 head(pessoas)
 
-pessoas_csv <- read.csv(file="populacao.csv")
+pessoas_csv <- read.csv(file="data/populacao.csv")
 pessoas_csv
 
-combustivel <- read.csv2(file="dados_anp2.csv")
+combustivel <- read.csv2(file="data/dados_anp2.csv")
 combustivel
 
 # 1.8.2 Exportação de arquivos
@@ -175,9 +175,9 @@ nomes <- c("Marco", "Carol", "João", "Caio", "Vinicius")
 idades <- c(36, 29, 28, 8, 10)
 frame_idades <- data.frame(nomes, idades)
 
-write.table(frame_idades, "idades.txt")
-write.csv(frame_idades, "idades.csv")
-write.csv2(frame_idades, "idades.csv")
+write.table(frame_idades, "data/idades.txt")
+write.csv(frame_idades, "data/idades.csv")
+write.csv2(frame_idades, "data/idades.csv")
 
 # Leitura de arquivos usando pacotes externos
 # install.packages("xlsx")
@@ -185,14 +185,14 @@ write.csv2(frame_idades, "idades.csv")
 
 # Leitura de arquivos no formato .xlsx
 library(xlsx)
-populacao <- read.xlsx("populacao.xlsx", sheetIndex=1)
+populacao <- read.xlsx("data/populacao.xlsx", sheetIndex=1)
 head(populacao)
 
 # Exportação de arquivos no formato .xlsx
 nome <- c("Anna", "Bruno", "Fernando", "Viviane", "Bernardo")
 salario <- c(3000, 5000, 2500, 1000, 500)
 df_salarios <- data.frame(nome, salario)
-write.xlsx(df_salarios, "funcionarios.xlsx", sheetName="Salario", row.names=FALSE)
+write.xlsx(df_salarios, "data/funcionarios.xlsx", sheetName="Salario", row.names=FALSE)
 
 # 1.9 Estruturas de condição e repetição
 
@@ -332,7 +332,7 @@ hist(galton$child, main="", xlab="Altura (cm)", ylab="Frequência", ylim=c(0, 20
      col="lightgray", border="steelblue")
 
 # Criando o gráfico
-dados <- read.csv2("POF_capitais.csv")
+dados <- read.csv2("data/POF_capitais.csv")
 hist(dados[, 31], main="", xlab="Renda Total Mensal do Domicílio", ylab="Frequência",
      col="lightsteelblue3")
 
