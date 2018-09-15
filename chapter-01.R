@@ -482,3 +482,27 @@ plot(0:10, 0:10, pch=19, main="Gráfico")
 
 # Adicionando a expressão x^2 ao gráfico
 curve(x^2, from=0, to=10, add=T, col="blue")
+
+# 1.13.8 Múltiplos gráficos
+
+# Exibe 4 gráficos na tela: 2 linhas e 2 colunas
+par(mfrow=c(2, 2))
+
+# Gráfico 1 - Histograma
+hist(galton$child, main="Distribuição das alturas dos filhos",
+     xlab="Alturas (cm)", col="lightgray", border="steelblue")
+
+# Gráfico 2 - Boxplot
+boxplot(galton$parent, main="Boxplot para a altura dos pais",
+        ylab="Altura (cm)", col="seagreen3")
+
+# Gráfico 3 - Pizza
+prop <- table(kid.weights[, 4])
+pie(prop, main="Composição por sexo", labels=c("51.6%", "48.4%"),
+    col=c("palevioletred2", "dodgerblue3"))
+
+# Gráfico 4 - Barras
+renda <- tapply(dados[, 31], dados[, 2], mean)
+barplot(renda, names=c("BA", "MG", "RJ", "SP", "RS", "DF"),
+        ylim=c(0, 5000), main="Renda Média por UF",
+        col=gray.colors(6))
