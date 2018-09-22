@@ -57,3 +57,29 @@ prev_holt <- forecast(ajuste_holt, h=12, level=95)
 prev_holt
 
 plot(prev_holt, xlab="Tempo", ylab="Valores Observados/Previstos", main="")
+
+# 2.4 Suavização exponencial sazonal de Holt-Winters
+
+# 2.4.2 O modelo multiplicativo
+tx_desemprego <- read.csv2("data/taxa_desemprego_regiao_metropolitana_sp.csv", sep="")
+desemprego <- tx_desemprego[, 2]
+serie_desemprego <- ts(desemprego, start=c(1985, 1), frequency=12)
+plot(serie_desemprego, xlab="Tempo", ylab="Taxa de Desemprego", main="")
+
+ajuste_com_sazonalidade <- HoltWinters(serie_desemprego)
+ajuste_com_sazonalidade
+
+plot(serie_desemprego, xlab="Tempo", ylab="Taxa de Desemprego", main="")
+lines(fitted(ajuste_com_sazonalidade)[, 1], lwd=2, col="red")
+legend(1985, 15, c("Taxa de Desemprego", "Ajuste HW"), lwd=c(1, 2), 
+       col=c("black", "red"), bty="n")
+
+prev_hw <- forecast(ajuste_com_sazonalidade, h=12, level=95)
+plot(prev_hw, xlab="Tempo", ylab="Taxa de Desemprego", main="")
+
+ajuste_com_sazonalidade_mult <- HoltWinters(serie_desemprego, seasonal="multiplicative")
+plot(serie_desemprego, xlab="Tempo", ylab="Taxa de Desemprego", main="", ylim=c(4, 20))
+lines(fitted(ajuste_com_sazonalidade)[, 1], lwd=2, col="red")
+lines(fitted(ajuste_com_sazonalidade_mult)[, 1], lwd=2, col="blue")
+legend(1985, 20, c("Taxa de Desemprego", "Ajuste HW Aditivo", "Ajuste HW Multiplicativo"), 
+       lwd=c(1, 2), col=c("black", "red", "blue"), bty="n")
